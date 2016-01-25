@@ -1,0 +1,33 @@
+<head>
+  <title>rps</title>
+</head>
+
+<body>
+  <h1>Rock Paper Scissors</h1>
+</body>
+
+<template name="App_wait1">
+Waiting for other player to start playing...
+</template>
+
+<template name="App_wait2">
+Waiting for other player to make a choice...
+</template>
+
+<template name="App_RPS">
+  {{player}}, pick: <br/>  <br/>  
+  <button id="rock">Rock</button>
+  <button id="paper">Paper</button>
+  <button id="scissors">Scissors</button>
+</template>
+
+<template name="App_Results">
+  {{playerChoice}} <br/>
+  {{otherPlayersChoice}}<br/>
+  {{gameResult}} <br/><br/>
+  <button>Play Again!</button>
+</template>
+
+<template name="App_notFound">
+	Unknown player <br/>
+</template>
