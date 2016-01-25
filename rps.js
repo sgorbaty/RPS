@@ -95,10 +95,10 @@ if (Meteor.isClient) {
   Tracker.autorun( function() {
     if (FlowRouter.subsReady( 'players' ) ) {
       var currentPlayer = Players.findOne({'id': Session.get('player')});      
-      var otherPlayer = Players.findOne({'id': Session.get('player') == 1 ? 2 : 1});
+      var otherPlayer = Players.findOne({'id': Session.get('player') === 1 ? 2 : 1});
       Session.set('playerObj',currentPlayer);
 
-      if(currentPlayer.state == STATE.IDLE) {
+      if(currentPlayer.state === STATE.IDLE) {
         BlazeLayout.render('App_RPS');
       } else if (currentPlayer.state === STATE.PLAYING && otherPlayer.state === STATE.PLAYING) {
         finishPlaying(currentPlayer.choice,otherPlayer.choice);                       
@@ -114,8 +114,7 @@ if (Meteor.isClient) {
   
   FlowRouter.route('/player:id', {
     subscriptions: function(params) {
-        var x = Meteor.subscribe('players', params.id);
-        this.register('players', x);
+        this.register('players', Meteor.subscribe('players', params.id));
     },
   action(params, queryParams) {   
     var id = parseInt(FlowRouter.getParam('id'));
