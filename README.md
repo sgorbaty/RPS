@@ -1,4 +1,4 @@
-blaze-html-templates
-kadira:flow-router
-kadira:blaze-layout
-tracker
+```Additional````
++kadira:flow-router
++kadira:blaze-layout
+-autopublish
